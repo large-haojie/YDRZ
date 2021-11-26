@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h3>
+        号码验证demo
+    </h3>
+</body>
+<script type="text/javascript" src="https://www.cmpassport.com/NumberAbility/jssdkVlm_yw/jssdk_v1.0.0.min.js"></script>
+<script>
+      if (window.location.search.indexOf('_vConsole_=1') !== -1) {
+          console.log('object :>> ', 'object');
+      document.writeln(
+        '<script src="/pr/v1.0.4/console.js"' +
+        '>' + '<' + '/' + 'script>');
+      document.writeln(
+        '<script ' +
+        '>var vConsole = new VConsole();' + '<' + '/' + 'script>');
+    }
+</script>
+<script>
+    var appid='300012014310'
+    const connection=YDRZ.getConnection(appid);
+    console.log('connection: ', connection);
+
+    YDRZ.getTokenInfo({
+        data:{
+            version:"1.0",
+            msgId:"ee05d1635db847a2bf3c8317434539d6",
+            timestamp:"20200628180001165",
+            appId:"300012014310",
+            sign:'Vxb/fKx1CkTkErpXuYnUdouQCqV0UQ++N7JjPAVe/EDP3ZkBDpCK7CFg5nJrhJW7OKfS7inJ7rXmZ5IIVlfJTdVElAOZuXc94p6DSAagskjY4mBgpw+7wJ8/bteP2FT5IRRrCKo2J80kK5aWOc8nmBeFOAojD//mWyMx4piRuIo=',
+        },
+        
+        success:function(res){
+            console.log('res :>> ', res);
+        },
+        error:function(res){
+            console.log('failres :>> ', res);
+        }
+    })
+</script>
+</html>
