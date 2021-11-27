@@ -28,7 +28,7 @@
 <script src="https://cdn.bootcss.com/moment.js/2.20.1/locale/zh-cn.js"></script>
 <script>
     var appid='300012093093'
-    const connection=YDRZ.getConnection(appid);
+    // const connection=YDRZ.getConnection(appid);
     var timestamp=moment().format('YYYYMMDDHHmmssSSS');
     console.log('timestamp: ', timestamp);
     var msgid='123456';
@@ -39,7 +39,7 @@
     var appkey='CC763B9A69570AA467F572F09B1B09A4';
     // 300012093093 1 123456 20211127120424627 123456 1.0 CC763B9A69570AA467F572F09B1B09A4
     // console.log(`${appid}${businessType}${msgid}${timestamp}${traceId}${version}${appkey}`);
-    const sign=hex_md5(`${appid}${businessType}${msgid}${timestamp}${traceId}${version}${appkey}`)
+    const sign=b64_md5(`${appid}${businessType}${msgid}${timestamp}${traceId}${version}${appkey}`)
     console.log('sign: ', sign);
     YDRZ.getTokenInfo({
         data:{
@@ -49,14 +49,14 @@
             traceId,
             timestamp,
             openType:1,
-            isTest:0
+            // isTest:0
         },
         
         success:function(res){
             console.log('res :>> ', res);
         },
         error:function(res){
-            console.log('failres :>> ', res);
+            console.log('error :>> ', res);
         }
     })
 </script>
