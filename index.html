@@ -24,18 +24,29 @@
         '>var vConsole = new VConsole();' + '<' + '/' + 'script>');
     }
 </script>
+<script src="https://cdn.bootcss.com/moment.js/2.20.1/moment.min.js"></script>
+<script src="https://cdn.bootcss.com/moment.js/2.20.1/locale/zh-cn.js"></script>
+<script src="https://cdn.bootcss.com/moment.js/2.20.1/moment.min.js"></script>
 <script>
     var appid='300012093093'
     const connection=YDRZ.getConnection(appid);
-    console.log('connection: ', connection);
-
+    var timestamp=moment().format('YYYYMMDDHHmmssSSS');
+    console.log('timestamp: ', timestamp);
+    var msgid='123456';
+    var appId='300012093093';
+    var businessType=1;
+    var traceId='123456';
+    var version='1.0';
+    var appkey='CC763B9A69570AA467F572F09B1B09A4';
+    // 300012093093 1 123456 20211127120424627 123456 1.0 CC763B9A69570AA467F572F09B1B09A4
+    console.log(`${appid}${businessType}${msgid}${timestamp}${traceId}${version}${appkey}`);
+    const sign=hex_md5(`${appid}${businessType}${msgid}${timestamp}${traceId}${version}${appkey}`)
+    console.log('sign: ', sign);
     YDRZ.getTokenInfo({
         data:{
             version:"1.0",
-            msgId:"7QB74UHC7HVNM8QLC4750UPBSU0BJN08",
-            // timestamp:"20200628180001165",
             appId:"300012093093",
-            sign:'MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCHI07g1VSqvi1HjsTJI4aVDPCkNL7523atvzMCbxSoLoRELCO3Q2mBYKQlPlF9HppFTPKkSy6/+4gjF23Mjo5ySQ8tfcDMvCXPkd2N8ceKToKnVubGV8/ehl1HM+P6INJeLODKXmEf0ZwW5fsO9hjRPWVmZw7ZpGT5BWMkZON9FQIDAQAB',
+            // sign,
         },
         
         success:function(res){
