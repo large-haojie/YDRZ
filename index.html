@@ -39,7 +39,7 @@
     var version='1.0';
     var appkey='CC763B9A69570AA467F572F09B1B09A4';
     // 300012093093 1 123456 20211127120424627 123456 1.0 CC763B9A69570AA467F572F09B1B09A4
-    // console.log(`${appid}${businessType}${msgid}${timestamp}${traceId}${version}${appkey}`);
+    console.log(`${appid}${businessType}${msgid}${timestamp}${traceId}${version}${appkey}`);
     const sign=hex_md5(`${appid}${businessType}${msgid}${traceId}${version}${appkey}`)
     console.log('sign: ', sign);
     YDRZ.getTokenInfo({
@@ -47,10 +47,10 @@
             version:"1.0",
             appId,
             sign,
-            traceId,
-            timestamp,
-            openType:1,
-            isTest:0
+            // traceId,
+            // timestamp,
+            // // openType:0,
+            // isTest:0
         },
         
         success:function(res){
