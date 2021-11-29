@@ -37,8 +37,9 @@
     var appId='300012093093';
     var businessType=8;
     var traceId='123456';
-    var version='1.0';
+    var version='2.0';
     var appkey='CC763B9A69570AA467F572F09B1B09A4';
+    console.log('object :>> ', `${appid}${businessType}${msgid}${timestamp}${traceId}${version}${appkey}`);
     const sign=hex_md5(`${appid}${businessType}${msgid}${timestamp}${traceId}${version}${appkey}`)
     YDRZAuthLogin.getTokenInfo({
         data:{
