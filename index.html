@@ -12,7 +12,8 @@
         号码验证demo
     </h3>
 </body>
-<script type="text/javascript" src="https://www.cmpassport.com/NumberAbility/jssdk_vlm/jssdk.min.js"></script>
+<!-- <script type="text/javascript" src="https://www.cmpassport.com/NumberAbility/jssdk_vlm/jssdk.min.js"></script> -->
+<script type="text/javascript" src="https://www.cmpassport.com/NumberAbility/jssdkVlm_yw/jssdk_v1.0.0.min.js"></script>
 <script>
       if (window.location.search.indexOf('_vConsole_=1') !== -1) {
       document.writeln(
@@ -39,7 +40,7 @@
     var appkey='CC763B9A69570AA467F572F09B1B09A4';
     // 300012093093 1 123456 20211127120424627 123456 1.0 CC763B9A69570AA467F572F09B1B09A4
     // console.log(`${appid}${businessType}${msgid}${timestamp}${traceId}${version}${appkey}`);
-    const sign=md5(`${appid}${businessType}${msgid}${timestamp}${traceId}${version}${appkey}`)
+    const sign=hex_md5(`${appid}${businessType}${msgid}${traceId}${version}${appkey}`)
     console.log('sign: ', sign);
     YDRZ.getTokenInfo({
         data:{
@@ -56,7 +57,7 @@
             console.log('res :>> ', res);
         },
         error:function(res){
-            console.log('error :>> ', res);
+            console.log('errinfo', res);
         }
     })
 </script>
