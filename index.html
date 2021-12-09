@@ -76,7 +76,9 @@
 
     function authLogin(){
         SMAuthLogin.getTokenInfo({
-            data:{},
+            data:{
+                authPageType:2,
+            },
             success: function(res) {
                 console.log('succ: ', res);
 
