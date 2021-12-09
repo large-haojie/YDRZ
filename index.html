@@ -101,14 +101,12 @@
         }
     }
     var pageOptions={
-        "bgColor":"#ccc",
-        "titleStyle":{'name':"一键登录sm","fontFamily":"PingFangSC-Medium, PingFang SC","fontSize":"1.33rem","fontColor":"#444444","width":"70%","height":"1.83rem","left":"center","high":"1rem","textAlign":"center"},
+        "titleStyle":{'name':"一键登录授权页面","fontFamily":"PingFangSC-Medium, PingFang SC","fontSize":"1.33rem","fontColor":"#444444","width":"70%","height":"1.83rem","left":"center","high":"1rem","textAlign":"center"},
     };
 
    
 
     function authLogin(){
-        console.log('object :>> ', SMAuthLogin);
         SMAuthLogin.authPageInit(pageOptions)
         SMAuthLogin.getTokenInfo({
             data:{
