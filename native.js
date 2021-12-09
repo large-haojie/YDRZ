@@ -364,7 +364,7 @@
         version: '1.0',
         timestamp: dateFormat(new Date(), 'yyyyMMddhhmmssSSS'),
         traceId: '@shumei',
-        businessType: '5',
+        businessType: '1',
         openType: '1',
     };
 
@@ -1501,6 +1501,7 @@
     var WIN$1 = window;
     var getTokenInfo = function (params) {
         var str = nativeConfig.appId + nativeConfig.businessType + nativeConfig.traceId + nativeConfig.timestamp + nativeConfig.traceId + nativeConfig.version + nativeConfig.appKey;
+        console.log('str: ', str);
         params.data = __assign(__assign(__assign({}, params.data), nativeConfig), { sign: md5(str) });
         return WIN$1.YDRZ.getTokenInfo(params);
     };
