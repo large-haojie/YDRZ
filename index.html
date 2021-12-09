@@ -12,6 +12,7 @@
     <div class='header'>
         <img class="img" src="https://portal.cmpassport.com/demo_test/authenticatePhone/authVerifyDemo/H5demo/img/header-1.png" alt="">
     </div>
+    <div id="ydrzCustomControls"></div>
     <div style="display: flex; flex-direction: column;">
         <input class="input" maxlength="11" type="number">
         <button class="button" onclick='nativeLogin()'>本机校验</button>
@@ -87,7 +88,7 @@
         },
         phoneStyle:{
             fontSize:"",
-            fontColor:"#F829FF",
+            fontColor:"red",
             high:"",
             left:"20px", 
         },
@@ -107,10 +108,11 @@
    
 
     function authLogin(){
-        SMAuthLogin.authPageInit(pageOptions)
+        // SMAuthLogin.authPageInit(pageOptions)
+        SMAuthLogin.customControlsInit('ydrzCustomControls',modalOptions)
         SMAuthLogin.getTokenInfo({
             data:{
-                authPageType:3,
+                authPageType:2,
             },
             success: function(res) {
                 console.log('succ: ', res);
