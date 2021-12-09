@@ -1503,6 +1503,7 @@
         var str = nativeConfig.appId + nativeConfig.businessType + nativeConfig.traceId + nativeConfig.timestamp + nativeConfig.traceId + nativeConfig.version + nativeConfig.appKey;
         console.log('str: ', str);
         params.data = __assign(__assign(__assign({}, params.data), nativeConfig), { sign: md5(str) });
+        console.log('pa :>> ', params);
         return WIN$1.YDRZ.getTokenInfo(params);
     };
     var getConnection = function (params) {
