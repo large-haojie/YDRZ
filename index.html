@@ -9,14 +9,46 @@
 </head>
 
 <body>
-    <h3>
-        号码验证demo
-    </h3>
+    <div class='header'>
+        <img class="img" src="https://portal.cmpassport.com/demo_test/authenticatePhone/authVerifyDemo/H5demo/img/header-1.png" alt="">
+    </div>
+    <div style="display: flex; flex-direction: column;">
+        <input class="input" maxlength="11" type="number">
+        <button class="button" onclick='nativeLogin()'>本机校验</button>
+        <button class="button" onclick='authLogin()'>一键登录</button>
+        <button class="button" onclick='connection()'>网络状态</button>
+    </div>
 </body>
-<!-- <script type="text/javascript" src="https://www.cmpassport.com/NumberAbility/jssdkVlm_yw/jssdk_v1.0.0.min.js"></script> -->
-<!-- <script type="text/javascript" src="https://www.cmpassport.com/h5/js/jssdk_auth/jssdk-1.0.0.min.js"></script> -->
-<script type="text/javascript" src="./index.js"></script>
-<script type="text/javascript" src="./crypto-js.js"></script>
+<style>
+    body{
+        margin: 0;
+    }
+    .header{
+        width: 100%;
+        height: 200px;
+    }
+    .img{
+        width: 100%;
+    }
+    .input{
+        width: 90%;
+        height: 48px;
+        background: #ccc;
+        margin: 0 auto;
+    }
+    .button{
+        width: 80%;
+        height: 48px;
+        background: #23d2c8;
+        margin: 10px auto;
+        border-radius: 6px;
+        
+    }
+</style>
+
+<script type="text/javascript" src="./native.js"></script>
+<script type="text/javascript" src="./auth.js"></script>
+<script type="text/javascript" src="./crypto.js"></script>
 <script>
       if (window.location.search.indexOf('_vConsole_=1') !== -1) {
       document.writeln(
@@ -27,57 +59,44 @@
         '>var vConsole = new VConsole();' + '<' + '/' + 'script>');
     }
 </script>
-<script src="https://cdn.bootcss.com/moment.js/2.20.1/moment.min.js"></script>
-<script src="https://cdn.bootcss.com/moment.js/2.20.1/locale/zh-cn.js"></script>
-<script src="https://cdn.bootcdn.net/ajax/libs/blueimp-md5/2.18.0/js/md5.js"></script>
+
 <script>
-    var appid='300012093093'
-    // const connection=YDRZ.getConnection(appid);
-    var timestamp=moment().format('YYYYMMDDHHmmssSSS');
-    console.log('timestamp: ', timestamp);
-    var msgid='123456';
-    var appId='300012093093';
-    var businessType=8;
-    var traceId='123456';
-    var version='2.0';
-    var appkey='CC763B9A69570AA467F572F09B1B09A4';
-    console.log('object :>> ', `${appid}${businessType}${msgid}${timestamp}${traceId}${version}${appkey}`);
-    const sign=hex_md5(`${appid}${businessType}${msgid}${timestamp}${traceId}${version}${appkey}`)
-    YDRZAuthLogin.getTokenInfo({
-        data:{
-            version:'2.0',
-            appId, 
-            sign,
-            timestamp,
-            traceId,
-            // authPageType:1,
-        },
-        success: function(res) {
-            console.log('succ: ', res);
+    function nativeLogin(){  
+        SMNativeLogin.getTokenInfo({
+            data:{},
+            success: function(res) {
+                console.log('succ: ', res);
+            },
+            error:function(res) { 
+                console.log('error: ', res);
 
-        },
-        error:function(res) { 
-            console.log('error: ', res);
+            }
+        })
+    } 
 
-        }
-    })
-    // YDRZ.getTokenInfo({
-    //     data:{
-    //         version:"1.0",
-    //         appId,
-    //         sign,
-    //         traceId,
-    //         timestamp,
-    //         openType:0,
-    //         isTest:0
-    //     },
-        
-    //     success:function(res){
-    //         console.log('res :>> ', res);
-    //     },
-    //     error:function(res){
-    //         console.log('errinfo', res);
-    //     }
-    // })
+    function authLogin(){
+        SMAuthLogin.getTokenInfo({
+            data:{},
+            success: function(res) {
+                console.log('succ: ', res);
+
+            },
+            error:function(res) { 
+                console.log('error: ', res);
+
+            }
+        })
+    }
+    function connection(){
+        SMNativeLogin.getConnection({
+            success:function(res){
+                console.log('res :>> ', res);
+            },
+            error:function(res){
+                console.log('errinfo', res);
+            }
+        })
+    }
+    
 </script>
 </html>
