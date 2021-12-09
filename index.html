@@ -109,8 +109,8 @@
    
 
     function authLogin(){
-        // SMAuthLogin.authPageInit(pageOptions)
-        SMAuthLogin.customControlsInit('ydrzCustomControls',modalOptions)
+        SMAuthLogin.authPageInit(pageOptions)
+        // SMAuthLogin.customControlsInit('ydrzCustomControls',modalOptions)
         SMAuthLogin.getTokenInfo({
             data:{
                 authPageType:2,
@@ -126,14 +126,8 @@
         })
     }
     function connection(){
-        SMNativeLogin.getConnection({
-            success:function(res){
-                console.log('res :>> ', res);
-            },
-            error:function(res){
-                console.log('errinfo', res);
-            }
-        })
+        var connect= SMNativeLogin.getConnection();
+        console.log('connect: ', connect);
     }
     
 </script>
