@@ -73,11 +73,46 @@
             }
         })
     } 
+    var modalOptions = {
+        layerStyle:{
+            width:"500px",
+            height:'240px',
+            bgColor:"#236",
+            borderRadius:"23px"
+        },
+        maskStyle:{
+            ifShowMask:true,
+            bgColor:"red",
+            opacity:""
+        },
+        phoneStyle:{
+            fontSize:"",
+            fontColor:"#F829FF",
+            high:"",
+            left:"20px", 
+        },
+        closeBtnStyle:{
+            ifShowBtn:true,
+            btnImage:"",
+            top:"10px",
+            right:"",
+            width:"",
+            height:""
+        }
+    }
+    var pageOptions={
+        "bgColor":"#ccc",
+        "titleStyle":{'name':"一键登录sm","fontFamily":"PingFangSC-Medium, PingFang SC","fontSize":"1.33rem","fontColor":"#444444","width":"70%","height":"1.83rem","left":"center","high":"1rem","textAlign":"center"},
+    };
+
+   
 
     function authLogin(){
+        console.log('object :>> ', SMAuthLogin);
+        SMAuthLogin.authPageInit(pageOptions)
         SMAuthLogin.getTokenInfo({
             data:{
-                authPageType:1,
+                authPageType:3,
             },
             success: function(res) {
                 console.log('succ: ', res);

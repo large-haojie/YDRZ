@@ -3134,7 +3134,11 @@
         return WIN$1.YDRZAuthLogin.getTokenInfo(params);
     };
     var getConnection = function (params) {
-        return WIN$1.YDRZ.getConnection(params);
+        return WIN$1.YDRZAuthLogin.getConnection(params);
+    };
+    var authPageInit = function (params) {
+        console.log('params: ', params);
+        return WIN$1.YDRZAuthLogin.authPageInit(params);
     };
 
     var WIN = window;
@@ -3146,6 +3150,10 @@
         };
         SMRZ.prototype.getConnection = function (params) {
             return getConnection(params);
+        };
+        SMRZ.prototype.authPageInit = function (options) {
+            console.log('options: ', options);
+            return authPageInit(options);
         };
         return SMRZ;
     }());
