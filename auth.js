@@ -3122,23 +3122,24 @@
         version: '1.0',
         timestamp: dateFormat(new Date(), 'yyyyMMddhhmmssSSS'),
         traceId: '@shumei',
-        businessType: '5',
+        businessType: '1',
         openType: '1',
     });
 
     var WIN$1 = window;
     var getTokenInfo = function (params) {
         var str = authConfig.appId + authConfig.businessType + authConfig.traceId + authConfig.timestamp + authConfig.traceId + authConfig.version + authConfig.appKey;
-        params.data = __assign(__assign(__assign({}, params.data), authConfig), { sign: md5(str) });
-        console.log('params :>> ', params);
+        params.data = __assign(__assign({ sign: md5(str) }, authConfig), params.data);
         return WIN$1.YDRZAuthLogin.getTokenInfo(params);
     };
     var getConnection = function (params) {
         return WIN$1.YDRZAuthLogin.getConnection(params);
     };
-    var authPageInit = function (params) {
-        console.log('params: ', params);
-        return WIN$1.YDRZAuthLogin.authPageInit(params);
+    var authPageInit = function (options) {
+        return WIN$1.YDRZAuthLogin.authPageInit(options);
+    };
+    var customControlsInit = function (domId, options) {
+        return WIN$1.YDRZAuthLogin.CustomControlsInit(domId, options);
     };
 
     var WIN = window;
@@ -3152,8 +3153,10 @@
             return getConnection(params);
         };
         SMRZ.prototype.authPageInit = function (options) {
-            console.log('options: ', options);
             return authPageInit(options);
+        };
+        SMRZ.prototype.customControlsInit = function (domId, options) {
+            return customControlsInit(domId, options);
         };
         return SMRZ;
     }());
