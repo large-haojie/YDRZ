@@ -109,11 +109,11 @@
    
 
     function authLogin(){
-        SMAuthLogin.authPageInit(pageOptions)
-        // SMAuthLogin.customControlsInit('ydrzCustomControls',modalOptions)
+        // SMAuthLogin.authPageInit(pageOptions)
+        SMAuthLogin.customControlsInit('ydrzCustomControls',modalOptions)
         SMAuthLogin.getTokenInfo({
             data:{
-                authPageType:3,
+                authPageType:2,
             },
             success: function(res) {
                 console.log('succ: ', res);
