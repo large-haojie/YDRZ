@@ -19,6 +19,7 @@
         <button class="button" onclick='nativeLogin()'>本机校验</button>
         <button class="button" onclick='authLogin()'>一键登录</button>
         <button class="button" onclick='connection()'>网络状态</button>
+        <button class="button" onclick="login()">点击登录</button>
     </div>
 </body>
 <style>
@@ -63,6 +64,19 @@
 </script>
 
 <script>
+    function login(){
+        console.log('object :>> ', 'object');
+        SMAuthLogin.authGetTokenByLayer(
+                    {
+                        success:(res_2)=>{
+                            console.log('res_2 :>> ', res_2);
+                        },
+                        error:(err_2)=>{
+                            console.log('err_2 :>> ', err_2);
+                        }
+                    }
+                )
+    }
     function nativeLogin(){  
         SMNativeLogin.getTokenInfo({
             data:{},
@@ -117,17 +131,7 @@
             },
             success: function(res) {
                 console.log('succ: ', res);
-                SMAuthLogin.authGetTokenByLayer(
-                    {
-                        success:(res_2)=>{
-                            console.log('res_2 :>> ', res_2);
-                        },
-                        error:(err_2)=>{
-                            console.log('err_2 :>> ', err_2);
-                        }
-                    }
-                    
-                )
+             
 
 
             },
