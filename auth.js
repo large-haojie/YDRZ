@@ -3108,8 +3108,8 @@
     };
 
     var authConfig = {
-        appId: '300012093093',
-        appKey: 'CC763B9A69570AA467F572F09B1B09A4',
+        appId: '300012103310',
+        appKey: 'E07A5EBDDB40072D3651D53C8D7D9C29',
         version: '2.0',
         timestamp: dateFormat(new Date(), 'yyyyMMddhhmmssSSS'),
         traceId: '@shumei',
@@ -3141,8 +3141,11 @@
     var customControlsInit = function (domId, options) {
         return WIN$1.YDRZAuthLogin.CustomControlsInit(domId, options);
     };
-    var authGetTokenByLayer = function (params) {
-        return WIN$1.YDRZAuthLogin.authGetTokenByLayer(params);
+    var authGetTokenByLayer = function (succ, fail) {
+        return WIN$1.YDRZAuthLogin.authGetTokenByLayer(succ, fail);
+    };
+    var endGetToken = function () {
+        return WIN$1.YDRZAuthLogin.endGetToken();
     };
 
     var WIN = window;
@@ -3161,8 +3164,11 @@
         SMRZ.prototype.customControlsInit = function (domId, options) {
             return customControlsInit(domId, options);
         };
-        SMRZ.prototype.authGetTokenByLayer = function (params) {
-            return authGetTokenByLayer(params);
+        SMRZ.prototype.authGetTokenByLayer = function (succ, fail) {
+            return authGetTokenByLayer(succ, fail);
+        };
+        SMRZ.prototype.endGetToken = function () {
+            return endGetToken();
         };
         return SMRZ;
     }());
