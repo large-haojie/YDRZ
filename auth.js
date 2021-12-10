@@ -3141,6 +3141,9 @@
     var customControlsInit = function (domId, options) {
         return WIN$1.YDRZAuthLogin.CustomControlsInit(domId, options);
     };
+    var authGetTokenByLayer = function (params) {
+        return WIN$1.YDRZAuthLogin.authGetTokenByLayer(params);
+    };
 
     var WIN = window;
     var SMRZ = (function () {
@@ -3157,6 +3160,9 @@
         };
         SMRZ.prototype.customControlsInit = function (domId, options) {
             return customControlsInit(domId, options);
+        };
+        SMRZ.prototype.authGetTokenByLayer = function (params) {
+            return authGetTokenByLayer(params);
         };
         return SMRZ;
     }());
