@@ -67,14 +67,12 @@
     function login(){
         console.log('object :>> ', 'object');
         SMAuthLogin.authGetTokenByLayer(
-                    {
-                        success:(res_2)=>{
+                        (res_2)=>{
                             console.log('res_2 :>> ', res_2);
                         },
-                        error:(err_2)=>{
+                        (err_2)=>{
                             console.log('err_2 :>> ', err_2);
                         }
-                    }
                 )
     }
     function nativeLogin(){  
