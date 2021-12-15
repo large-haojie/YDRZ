@@ -350,8 +350,8 @@
     };
 
     ({
-        appId: '300012093093',
-        appKey: 'CC763B9A69570AA467F572F09B1B09A4',
+        appId: '300012103310',
+        appKey: 'E07A5EBDDB40072D3651D53C8D7D9C29',
         version: '2.0',
         timestamp: dateFormat(new Date(), 'yyyyMMddhhmmssSSS'),
         traceId: '@shumei',
@@ -359,8 +359,8 @@
         openType: '1',
     });
     var nativeConfig = {
-        appId: '300012093093',
-        appKey: 'CC763B9A69570AA467F572F09B1B09A4',
+        appId: '300012104063',
+        appKey: '641C1CAFC8F0BEEF8819F7665B310461',
         version: '1.0',
         timestamp: dateFormat(new Date(), 'yyyyMMddhhmmssSSS'),
         traceId: '@shumei',
@@ -1502,8 +1502,7 @@
     var getTokenInfo = function (params) {
         var str = nativeConfig.appId + nativeConfig.businessType + nativeConfig.traceId + nativeConfig.timestamp + nativeConfig.traceId + nativeConfig.version + nativeConfig.appKey;
         console.log('str: ', str);
-        params.data = __assign(__assign(__assign({}, params.data), nativeConfig), { sign: md5(str) });
-        console.log('pa :>> ', params);
+        params.data = __assign(__assign({ sign: md5(str) }, nativeConfig), params.data);
         return WIN$1.YDRZ.getTokenInfo(params);
     };
     var getConnection = function (params) {
