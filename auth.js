@@ -3108,8 +3108,8 @@
     };
 
     var authConfig = {
-        appId: '300012103310',
-        appKey: 'E07A5EBDDB40072D3651D53C8D7D9C29',
+        appId: '300012105997',
+        appKey: '5E6AD52DB7BB7326756D2B417EEFC390',
         version: '2.0',
         timestamp: dateFormat(new Date(), 'yyyyMMddhhmmssSSS'),
         traceId: '@shumei',
@@ -3117,8 +3117,8 @@
         openType: '1',
     };
     ({
-        appId: '300012093093',
-        appKey: 'CC763B9A69570AA467F572F09B1B09A4',
+        appId: '300012106053',
+        appKey: '8A1F577EA0BA1C21CAF1EFF4D48A8634',
         version: '1.0',
         timestamp: dateFormat(new Date(), 'yyyyMMddhhmmssSSS'),
         traceId: '@shumei',
